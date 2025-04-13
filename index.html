@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="토끼를 위한 최고의 배변판 솔루션, 토끼친구들을 위한 편안하고 위생적인 배변판 제품을 소개합니다.">
+    <title>온토 - 토끼를 위한 혁신적인 배변판</title>
+    <style>
+        :root {
+            --primary: #6A994E;
+            --secondary: #A7C957;
+            --accent: #F2E8CF;
+            --dark: #386641;
+            --light: #F8F9FA;
+            --gray: #E9ECEF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 헤더 스타일 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 언어 선택 */
+        .language-selector {
+            position: relative;
+            margin-left: 2rem;
+        }
+        
+        .language-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .language-btn:after {
+            content: '▼';
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 0.5rem 0;
+            min-width: 120px;
+            display: none;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        
+        .language-dropdown a:hover {
+            background-color: var(--gray);
+        }
+        
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 특징 섹션 */
+        .features {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            background-color: var(--accent);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--dark);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        /* 제품 섹션 */
+        .products {
+            padding: 5rem 1rem;
+            background-color: var(--gray);
+        }
+        
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .product-img {
+            flex: 1;
+            min-height: 400px;
+            background-color: var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .product-info {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .product-feature {
+            margin: 1.5rem 0;
+        }
+        
+        .product-feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .check-icon {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        /* 회사 소개 섹션 */
+        .about {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        
+        /* 고객 리뷰 섹션 */
+        .testimonials {
+            padding: 5rem 1rem;
+            background-color: var(--accent);
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin-right: 1rem;
+            overflow: hidden;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            color: #777;
+        }
+        
+        /* 연락처 섹션 */
+        .contact {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* 푸터 */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            width: 30px;
+            margin-right: 10px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.875rem;
+        }
+        
+        /* 반응형 스타일 */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .product {
+                flex-direction: column;
+            }
+            
+            .product-img {
+                width: 100%;
+                min-height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .language-selector {
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #6A994E; border-radius: 50%; margin-right: 10px;">
+                    <span style="color: white; font-size: 20px;">🐰</span>
+                </div>
+                온토
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">특징</a></li>
+                <li><a href="#products">제품</a></li>
+                <li><a href="#about">회사소개</a></li>
+                <li><a href="#testimonials">고객리뷰</a></li>
+                <li><a href="#contact">문의하기</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="language-btn">한국어</button>
+                <div class="language-dropdown">
+                    <a href="#">한국어</a>
+                    <a href="#">English</a>
+                    <a href="#">日本語</a>
+                </div>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>토끼를 위한 혁신적인 배변판</h1>
+            <p>토끼에 대한 진정한 사랑에서 시작된 온토, 토끼와 보호자 모두를 위한 최고의 선택입니다.</p>
+            <a href="#products" class="btn">제품 보러가기</a>
+        </div>
+    </section>
+
+    <!-- 특징 섹션 -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>온토의 특별한 장점</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">♻️</div>
+                <h3>친환경 소재</h3>
+                <p>토끼에게 무해한 재활용 가능한 소재로 제작되어 환경과 반려동물 모두에게 안전합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧹</div>
+                <h3>청소 용이성</h3>
+                <p>특허받은 구조로 청소가 간편하고, 악취를 최소화하여 토끼와 보호자의 편의를 극대화합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>건강 모니터링</h3>
+                <p>배변 상태를 쉽게 확인할 수 있어 토끼의 건강 상태를 지속적으로 모니터링할 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 제품 섹션 -->
+    <section class="products" id="products">
+        <div class="product-container">
+            <div class="section-title">
+                <h2>토끼를 위한 최고의 배변판</h2>
+            </div>
+            <div class="product">
+                <div class="product-img">
+                    <img src="/api/placeholder/400/320" alt="온토 토끼 배변판" />
+                </div>
+                <div class="product-info">
+                    <h3>온토 토끼 배변판</h3>
+                    <p>토끼의 습관과 행동 패턴을 연구하여 개발된 최고급 배변판입니다. 토끼가 자연스럽게 사용할 수 있도록 설계되었습니다.</p>
+                    <div class="product-feature">
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>높은 측면 디자인으로 배변물 튐 방지</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>탈착식 그리드로 청소 편리</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>토끼가 좋아하는 인체공학적 설계</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>무독성 항균 소재로 세균 번식 방지</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">구매 문의하기</a>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h3>온핏 배변패드</h3>
+                    <p>온토 토끼 배변판과 호환되는 사이즈입니다.</p>
+                    <div class="product-feature">
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>케이지 코너에 딱 맞는 설계</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>고정 장치로 움직임 방지</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>쉽게 분리 가능한 구조</span>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>토끼가 좋아하는 은신처 효과</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">구매 문의하기</a>
+                </div>
+                <div class="product-img">
+                    <img src="/api/placeholder/400/320" alt="온토 코너형 배변판" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 회사 소개 섹션 -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>토끼에 미친 사람들이 만든 온토</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="/api/placeholder/400/320" alt="온토 팀" />
+            </div>
+            <div class="about-text">
+                <h3>토끼와 함께하는 행복한 삶을 추구합니다</h3>
+                <p>저희 온토는 토끼 보호자들이 직접 설립한 회사입니다. 우리는 모두 토끼를 키우면서 경험한 어려움과 문제점을 해결하기 위해 모였습니다.</p>
+                <p>5년간의 연구 개발 끝에 탄생한 온토는 토끼의 습관과 행동 패턴을 완벽하게 이해하고 그에 맞춰 설계되었습니다. 우리는 단순한 제품을 만드는 것이 아니라, 토끼와 보호자 모두가 더 행복한 삶을 살 수 있도록 도움을 주고자 합니다.</p>
+                <p>온토의 모든 제품은 토끼 전문 수의사와 동물 행동 전문가의 자문을 받아 개발되었으며, 엄격한 품질 테스트를 거쳐 안전성을 보장합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 고객 리뷰 섹션 -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-title">
+                <h2>토끼 보호자들의 리얼 후기</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>토끼를 키운지 3년째인데, 온토를 사용한 후로 청소 시간이 절반으로 줄었어요. 토끼도 금방 적응해서 사용하고 있습니다. 정말 추천해요!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="/api/placeholder/50/50" alt="김미래" />
+                        </div>
+                        <div class="author-info">
+                            <h4>김미래</h4>
+                            <p>홀랜드 롭 보호자</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>다른 배변판은 토끼가 잘 사용하지 않았는데, 온토는 첫날부터 잘 사용했어요. 디자인도 예쁘고 청소도 간편해서 매우 만족스럽습니다.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="/api/placeholder/50/50" alt="이준호" />
+                        </div>
+                        <div class="author-info">
+                            <h4>이준호</h4>
+                            <p>미니렉스 보호자</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>코너형 제품을 사용중인데, 케이지 공간을 효율적으로 사용할 수 있어서 좋아요. 토끼가 배변판에 올라가면 좌우로 흔들리지 않고 안정적이라 더 좋아합니다.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="/api/placeholder/50/50" alt="박소연" />
+                        </div>
+                        <div class="author-info">
+                            <h4>박소연</h4>
+                            <p>네덜란드 드워프 보호자</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>문의하기</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>언제든지 연락주세요</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <p>인천광역시 남동구 남동서로236번길 30, 222동 H92호</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <p>02-123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <p>info@onto.co.kr</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <p>평일 09:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">주제</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">메시지</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="background-color: var(--primary); color: white;">문의하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; background-color: white; border-radius: 50%; margin-right: 10px;">
